@@ -1,0 +1,44 @@
+.task{
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    height: 60px;
+    font-size: 18px;
+    margin: 0 auto;
+    line-height: 60px;
+    padding: 0px 50px;
+    color: rgb(183, 157, 208);
+    border: 2px solid rgb(183, 157, 208);
+    width: 500px; 
+    margin: 0 auto;
+}
+
+.btndelete{   
+    position: absolute;
+    left: 58%;
+    margin-top: 10px;
+    color: black;
+    background-color: rgb(183, 157, 208);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;   
+   
+}
+
+.btncomplete{
+    position: absolute;
+    left: 50%;
+    margin-top: 10px;
+    color: black;
+    background-color: rgb(183, 157, 208);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;   
+}
+

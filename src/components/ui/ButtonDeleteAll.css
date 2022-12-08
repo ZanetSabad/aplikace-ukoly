@@ -1,0 +1,15 @@
+.action button{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 30px;
+    background-color: rgb(160, 49, 80);
+    color: black;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 2px solid rgb(26, 18, 33);
+}

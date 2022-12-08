@@ -1,25 +1,78 @@
-import logo from './logo.svg';
-import './App.css';
+import OneTask from "./components/OneTask";
+import ButtonDeleteAll from "./components/ui/ButtonDeleteAll";
 
-function App() {
-  return (
+import { useState } from "react"
+
+
+const App = () => {
+  
+  const [toDoList, setToDoList] = useState([])
+  const [newTask, setNewTask] = useState("") 
+  
+
+  const handleChange = (event) => {
+    setNewTask(event.target.value)
+  }
+
+  const addTask = () => {
+    const task = {
+      id: toDoList.length === 0 ? 1 : toDoList[toDoList.length - 1].id + 1,
+      taskName: newTask,
+      completed: false,
+    };
+    setToDoList([...toDoList, task]);
+  };
+
+  const deleteTask = (id) => {
+    setToDoList(toDoList.filter((task) => task.id !== id));   
+  };
+
+  const deleteAll = () => {
+    setToDoList ([])
+  }
+
+  const completeTask = (id) => {
+    setToDoList(
+      toDoList.map((task) => {
+        if (task.id === id) {
+          return {...task, completed: true}
+        } else {
+          return task
+        }
+      })
+    )
+  }
+
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Seznam</h1>
+
+      <div className="addTask">
+        <input className="inputText" type="text" onChange={handleChange}/>
+        <button onClick={addTask} className = "btnInput">Přidat položku</button>
+      </div>
+
+      <div className="list">
+        {toDoList.map((task) => {
+          return ( 
+            <OneTask 
+            taskName={task.taskName} 
+            id={task.id} 
+            completed={task.completed}
+            deleteTask={deleteTask}
+            completeTask={completeTask}            
+          />
+
+          )
+        })}  
+      </div>
+      
+      <div className="action">
+          <ButtonDeleteAll deleteButton={deleteAll}/>        
+      </div>
     </div>
-  );
+     
+  )
 }
 
-export default App;
+export default App
